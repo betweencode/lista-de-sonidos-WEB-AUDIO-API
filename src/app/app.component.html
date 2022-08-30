@@ -1,53 +1,37 @@
 <div class="container">
   <div class="row">
-    <div class="col text-center">
+    <div class="col-6 text-center m-auto">
       <h1>Lista de reproducción</h1>
-
     </div>
   </div>
   <div class="row">
-    <div class="col m-auto">
-      <ul class="list-group">
-        <li class="list-group-item draggable d-flex justify-content-between p-2">
-              <div class="flex-shrink-0">
-                <img width="100px" width="100px" src="https://www.adslzone.net/app/uploads-adslzone.net/2019/04/borrar-fondo-imagen.jpg" alt="...">
-              </div>
-             <div class="flex-grow-1 ">
-              <div class="fw-bold">Subtitulo</div>
-              Este es un ejemplo
-             </div>
-             <button  class="btn btn-default me-auto">
-              <i  class="bi bi-play-fill"></i>
-            </button>
-            <button  class="btn btn-outline-danger me-auto">
-              <i class="bi bi-x-circle-fill danger"></i>
-            </button>
-        </li>
-        <li class="list-group-item draggable d-flex justify-content-between p-2">
-          <div class="flex-shrink-0">
-            <img width="100px" width="100px" src="https://www.adslzone.net/app/uploads-adslzone.net/2019/04/borrar-fondo-imagen.jpg" alt="...">
+    <div class="col-6 m-auto">
+      <ul class="list-group list-group-flush">
+        <li *ngFor="let item of listas;let indice = index;" class="list-group-item list-group-item-action d-flex justify-content-between">
+          <div class="me-auto d-flex p-1">
+            <img class="img-thumbnail" width="100px" [src]="item.imagen" alt="">
+            <div class="text-start ms-3">
+              <h2>{{item.titulo}}</h2>
+              <h6>{{item.subtitulo}}</h6>
+            </div>
           </div>
-         <div class="flex-grow-1 ">
-          <div class="fw-bold">Subtitulo</div>
-          Este es un ejemplo
-         </div>
-         <button class="btn btn-default me-auto">
-          <i class="bi bi-stop-fill"></i>
-        </button>
+          <button (click)="reproduciondosonido(item)" class="btn btn-default">
+            <i [ngClass]="{'bi-play-circle-fill':!item.reproduciendo,'bi-pause-circle-fill':item.reproduciendo}" class="bi"></i>
+          </button>
+          <button (click)="eliminandoElemento(indice)" class="btn btn-default">
+            <i class="bi bi-trash-fill"></i>
+          </button>
     </li>
-    <li class="list-group-item draggable d-flex justify-content-between p-2">
-      <div class="flex-shrink-0">
-        <img width="100px" width="100px" src="https://www.adslzone.net/app/uploads-adslzone.net/2019/04/borrar-fondo-imagen.jpg" alt="...">
-      </div>
-     <div class="flex-grow-1 ">
-      <div class="fw-bold">Subtitulo</div>
-      Este es un ejemplo
-     </div>
-     <button class="btn btn-default me-auto">
-      <i class="bi bi-stop-fill"></i>
-    </button>
-</li>
+   
+       
       </ul>
     </div>
   </div>
+  <div class="row">
+    <div class="col-12 text-center">
+      Betweencode suscribirse
+    </div>
+  </div>
 </div>
+
+
